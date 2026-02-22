@@ -95,7 +95,6 @@ The platform follows a distributed microservices architecture:
 - Auth-gated access
 
 ---
----
 
 ## System Design Deep Dive
 
@@ -299,14 +298,41 @@ Using Kubernetes transforms this from a prototype into a platform-oriented syste
 ## Application + Infrastructure Proof
 
 ### Login-
+Credentials-
+- Username- admin
+- Password- admin
+
+<img width="1667" height="881" alt="Screenshot 2026-02-22 at 3 20 14 PM" src="https://github.com/user-attachments/assets/439d10db-174c-4afd-91ab-5d66428b404d" />
+
 
 ### Dashboard (Query + Retrieved Context + Charts)-
+- Successfull file upload
+<img width="1667" height="881" alt="Screenshot 2026-02-22 at 3 22 03 PM" src="https://github.com/user-attachments/assets/dd57201e-d9b5-4cab-9773-4277d31410bf" />
+
+- Asking a question
+<img width="1667" height="881" alt="Screenshot 2026-02-22 at 3 23 17 PM" src="https://github.com/user-attachments/assets/7a1f2dec-7958-4093-a84d-d46480d5857d" />
+
+- Results
+<img width="1667" height="881" alt="image" src="https://github.com/user-attachments/assets/43c78ad3-749c-493f-9519-ea14f1d8e835" />
+
+<img width="1667" height="881" alt="image" src="https://github.com/user-attachments/assets/8822e28b-494e-481c-b4c2-e4106fa471e6" />
+
+### Services-
+<img width="1667" height="881" alt="Screenshot 2026-02-22 at 4 45 41 PM" src="https://github.com/user-attachments/assets/c634860c-45e1-453a-85f9-995205699aca" />
 
 ### Kubernetes Deployment Evidence: Running Pods- 
+<img width="1247" height="223" alt="image" src="https://github.com/user-attachments/assets/429d251d-6826-4b8d-8d62-9e592dfe975a" />
 
 ### Horizontal Pod Autoscaler-
+<img width="1246" height="442" alt="image" src="https://github.com/user-attachments/assets/2bdda216-4f75-4b03-a739-f022e4f416ba" />
+
 
 ### Resource Metrics-
+<img width="1021" height="161" alt="image" src="https://github.com/user-attachments/assets/247325c7-f0b9-4386-b785-6d2fba1e6426" />
+
+<img width="1016" height="99" alt="image" src="https://github.com/user-attachments/assets/0d11f57b-e5ea-423c-a85a-33d0093134b3" />
+
+
 
 ## Summary
 
