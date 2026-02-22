@@ -27,7 +27,7 @@ ChartJS.register(
   Legend
 );
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "http://localhost:9000";
 
 function App() {
   const [file, setFile] = useState(null);
