@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retrieval-service
+  namespace: rag-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retrieval
+  template:
+    metadata:
+      labels:
+        app: retrieval
+    spec:
+      containers:
+        - name: retrieval
+          image: distributed-rag-platform-retrieval-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8002
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "1000m"
+              memory: "2Gi"
+          volumeMounts:
+            - mountPath: /shared-data
+              name: rag-storage
+      volumes:
+        - name: rag-storage
+          persistentVolumeClaim:
+            claimName: rag-storage
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: retrieval-service
+  namespace: rag-system
+spec:
+  selector:
+    app: retrieval
+  ports:
+    - port: 8002
+      targetPort: 8002

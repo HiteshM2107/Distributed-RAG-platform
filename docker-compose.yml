@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+
+  ingestion-service:
+    build: ./ingestion-service
+    container_name: ingestion-service
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./shared-data:/shared-data
+
+  retrieval-service:
+    build: ./retrieval-service
+    container_name: retrieval-service
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./shared-data:/shared-data
+    depends_on:
+      - ingestion-service
+
+  evaluation-service:
+    build: ./evaluation-service
+    container_name: evaluation-service
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./shared-data:/shared-data
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ingestion-service
+      - retrieval-service
+      - evaluation-service
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api-gateway

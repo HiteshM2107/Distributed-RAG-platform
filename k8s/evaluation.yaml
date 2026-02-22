@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evaluation-service
+  namespace: rag-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: evaluation
+  template:
+    metadata:
+      labels:
+        app: evaluation
+    spec:
+      containers:
+        - name: evaluation
+          image: distributed-rag-platform-evaluation-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8003
+          volumeMounts:
+            - name: rag-storage
+              mountPath: /shared-data
+      volumes:
+        - name: rag-storage
+          persistentVolumeClaim:
+            claimName: rag-storage
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: evaluation-service
+  namespace: rag-system
+spec:
+  selector:
+    app: evaluation
+  ports:
+    - port: 8003
+      targetPort: 8003
