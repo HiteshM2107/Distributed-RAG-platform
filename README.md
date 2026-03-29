@@ -386,7 +386,6 @@ retrieval-service-yyyyy
 retrieval-service-zzzzz
 ```
 
-Below is a screenshot for the same-
 
 ---
 
